@@ -1,3 +1,33 @@
+<?php
+include_once 'resource/Database.php';
+
+if (isset($_POST['email'])) {
+  $email = $_POST['email'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  try {
+    $sqlInsert = "INSERT INTO users (username, password, email, join_date)
+                  VALUES (:username, :password, :email, now())";
+
+    $sqlStatement = $db->prepare($sqlInsert);
+
+    $sqlStatement->execute(array(':username' => $username, ':email' => $email, ':password' => $password));
+
+    if ($sqlStatement->rowCount() == 1) {
+      $sqlResult = "<p style='padding:20px; color:green;'>Registration Successful</p>";
+    }
+
+  } catch (PDOException $exception) {
+      $sqlResult = "<p style='padding:20px; color:red;'>Registration Failed: " . $exception->getMessage() . "</p>";
+
+  }
+
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -9,10 +39,8 @@
 
 <h3> Registration Form </h3>
 
-<?php
-var_dump($_POST);
-?>
 
+<?php if(isset($sqlResult)) echo $sqlResult ?>
 <form method="post" action="">
   <table>
       <tr><td>Email:</td> <td><input type="text" value="" name="email"></td></tr>

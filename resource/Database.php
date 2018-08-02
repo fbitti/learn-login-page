@@ -10,7 +10,7 @@ try {
   $db = new PDO($dsn, $db_username, $db_password);
 
   // set PDO error mode to exception
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION)
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // display success message
   echo "Connected to the register database\n";

@@ -7,6 +7,9 @@
 <body>
 <h2>User Authentication System </h2><hr>
 
-<?php include_once 'resource/Database.php' ?>
+<p>You are currently not signed in.<a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a> </p>
+
+<p>You are logged in as {username} <a href="logout.php">Logout</a> </p> 
+
 </body>
 </html>

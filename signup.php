@@ -6,13 +6,15 @@ if (isset($_POST['email'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
   try {
     $sqlInsert = "INSERT INTO users (username, password, email, join_date)
                   VALUES (:username, :password, :email, now())";
 
     $sqlStatement = $db->prepare($sqlInsert);
 
-    $sqlStatement->execute(array(':username' => $username, ':email' => $email, ':password' => $password));
+    $sqlStatement->execute(array(':username' => $username, ':email' => $email, ':password' => $hashed_password));
 
     if ($sqlStatement->rowCount() == 1) {
       $sqlResult = "<p style='padding:20px; color:green;'>Registration Successful</p>";

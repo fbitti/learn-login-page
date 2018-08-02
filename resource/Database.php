@@ -1,6 +1,7 @@
 <?php
 
-// revealing username and password now during a testing phase. Moving to $_ENV variables in the future
-$db = new PDO('mysql:host=localhost; dbname=register', 'root', 'abc123');
+$db = new PDO('mysql:host=' . $_SERVER['DB_HOST'] .'; dbname=' . $_SERVER['DB_DATABASE'], $_SERVER['DB_USERNAME'], $_SERVER['DB_PASSWORD']);
+echo "Connected to the register database\n";
 
-echo "Connected to the register database";
+
+?>

@@ -3,10 +3,6 @@ include_once 'resource/Database.php';
 
 // process the form
 if (isset($_POST['signupBtn'])) {
-
-  // DEBUG:
-  var_dump($_POST);
-
   // initialize an array to store any error message from the form
   $form_errors = array();
 
@@ -59,6 +55,9 @@ if (isset($_POST['signupBtn'])) {
       $formErrorHTML .= "<li> {$error} </li>";
     }
     $formErrorHTML .= "</ul></p>";
+
+    echo $formErrorHTML;
+
   }
 
 }

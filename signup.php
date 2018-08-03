@@ -41,10 +41,10 @@ if (isset($_POST['signupBtn'])) {
       $sqlStatement->execute(array(':username' => $username, ':email' => $email, ':password' => $hashed_password));
 
       if ($sqlStatement->rowCount() == 1) {
-        $sqlResult = "<p style='padding:20px; color:green;'>Registration Successful</p>";
+        $sqlResult = "<p style='padding:20px; border:1px solid gray; color:green;'>Registration Successful</p>";
       }
     } catch (PDOException $exception) {
-        $sqlResult = "<p style='padding:20px; color:red;'>Registration Failed: " . $exception->getMessage() . "</p>";
+        $sqlResult = "<p style='padding:20px; border:1px solid gray; color:red;'>Registration Failed: " . $exception->getMessage() . "</p>";
     }
   } else {              // ! empty($form_errors)
     if (count($form_errors) == 1) {

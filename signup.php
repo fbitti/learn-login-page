@@ -44,10 +44,10 @@ if (isset($_POST['signupBtn'])) {
   } else {              // ! empty($form_errors)
     if (count($form_errors) == 1) {
       // create an error message in the singular
-      $formErrorHTML = "<p style='color:red;'> There was 1 error in the form.<br>";
+      $formErrorHTML = "<p style='color:red;'> This form field is empty:<br>";
     } else {            // ! (count($form_errors) == 1)
       // create an error message in the plural
-      $formErrorHTML = "<p style='color:red;'> There were " . count($form_errors) . " errors in the form.<br>";
+      $formErrorHTML = "<p style='color:red;'> These " . count($form_errors) . " form fields are empty.<br>";
     }
     $formErrorHTML .= "<ul style='color: red;'>";
     // loop through the error array and display all items

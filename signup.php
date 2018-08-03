@@ -1,5 +1,6 @@
 <?php
 include_once 'resource/Database.php';
+include_once 'resource/utilities.php';
 
 // process the form
 if (isset($_POST['signupBtn'])) {
@@ -10,11 +11,15 @@ if (isset($_POST['signupBtn'])) {
   $required_fields = array('email', 'username', 'password');
 
   // loop through the required fields array
-  foreach($required_fields as $name_of_field) {
-    if (!isset($_POST[$name_of_field]) || $_POST[$name_of_field] == NULL) {
-      $form_errors[] = $name_of_field;
-    }
-  }
+  $form_errors = check_empty_fields($required_fields);
+
+  // Fields that require checking for minimum length
+  $fields_to_check_length = array('username' => 4, 'password' => 6);
+  // call the function to check minimum required length and merge the return data into form_error array
+  $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
+
+  // email validation / merge the return data into form_error array
+  $form_errors = array_merge($form_errors, check_email($_POST));
 
   // only process the form data and insert a new record to the database
   // if the error array is empty
@@ -77,8 +82,7 @@ if (isset($_POST['signupBtn'])) {
 
 
 <?php if(isset($sqlResult)) echo $sqlResult; ?>
-
-<?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
+<?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 
 <form method="post" action="">
   <table>

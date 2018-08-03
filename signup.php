@@ -56,8 +56,6 @@ if (isset($_POST['signupBtn'])) {
     }
     $formErrorHTML .= "</ul></p>";
 
-    echo $formErrorHTML;
-
   }
 
 }
@@ -78,7 +76,10 @@ if (isset($_POST['signupBtn'])) {
 <h3> Registration Form </h3>
 
 
-<?php if(isset($sqlResult)) echo $sqlResult ?>
+<?php if(isset($sqlResult)) echo $sqlResult; ?>
+
+<?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
+
 <form method="post" action="">
   <table>
       <tr><td>Email:</td> <td><input type="text" value="" name="email"></td></tr>

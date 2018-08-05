@@ -3,26 +3,25 @@ include_once "resource/session.php";
 include_once "resource/Database.php";
 include_once "resource/utilities.php";
 
-if (isset($_POST["loginBtn"]) {
+if (isset($_POST["loginBtn"])) {
+  // array to store the errors
+  $form_errors = array();
 
-}
+  // validate
+  $required_fields = array('username', 'password');
+  $form_errors = check_empty_fields($required_fields);
 
-// array to store the errors
-$form_errors = array();
+  if (empty($form_errors)) {
 
-// validate
-$required_fields = array('username', 'password');
-$form_errors = check_empty_fields($required_fields);
-
-if (empty($form_errors)) {
-
-} else {    // ! empty($form_errors)
-  if (count($form_errors == 1)) {
-    $formErrorHTML = "<p style='color: red;'>There is one error in the form.</p>";
-  } else {    // ! count($form_errors == 1)
-    $formErrorHTML = "<p style='color: red;'>There were " . count($form_errors) . " errors in the form.</p>";
+  } else {    // ! empty($form_errors)
+    if (count($form_errors == 1)) {
+      $formErrorHTML = "<p style='color: red;'>There is one error in the form.</p>";
+    } else {    // ! count($form_errors == 1)
+      $formErrorHTML = "<p style='color: red;'>There were " . count($form_errors) . " errors in the form.</p>";
+    }
   }
 }
+
 
  ?>
 

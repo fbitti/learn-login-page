@@ -14,7 +14,7 @@ if (isset($_POST["loginBtn"])) {
   if (empty($form_errors)) {
 
   } else {    // ! empty($form_errors)
-    if (count($form_errors == 1)) {
+    if (count($form_errors) == 1) {
       $formErrorHTML = "<p style='color: red;'>There is one error in the form.</p>";
     } else {    // ! count($form_errors == 1)
       $formErrorHTML = "<p style='color: red;'>There were " . count($form_errors) . " errors in the form.</p>";

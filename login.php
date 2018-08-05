@@ -12,6 +12,29 @@ if (isset($_POST["loginBtn"])) {
   $form_errors = check_empty_fields($required_fields);
 
   if (empty($form_errors)) {
+    // store the form data in variables
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // check if the user exists in the Database
+    $sqlQuery = "SELECT * FROM users WHERE username = :username";
+    $sqlStatement = $db->prepare($sqlQuery);
+    $sqlStatement->execute(array(':username' => $username));
+
+    while ($row = $sqlStatement->fetch()) {
+      $id = $row['id'];
+      $hashed_password = $row['password'];
+      $username = $row['username'];
+
+      if (password_verify($password, $hashed_password)) {
+        $_SESSION['id'] = $id;
+        $_SESSION['username'] = $username;
+        header("location: index.php");
+      } else {   // !password_verify($password, $hashed_password)
+        $formErrorHTML = "<p style='padding:20px; color:red; border: 1px solid grey;'> Invalid username or password. </p>";
+      }
+    }
+
 
   } else {    // ! empty($form_errors)
     if (count($form_errors) == 1) {

@@ -48,19 +48,10 @@ if (isset($_POST['signupBtn'])) {
     }
   } else {              // ! empty($form_errors)
     if (count($form_errors) == 1) {
-      // create an error message in the singular
-      $formErrorHTML = statusMessage("This form field is empty:");
-    } else {            // ! (count($form_errors) == 1)
-      // create an error message in the plural
-      $formErrorHTML = statusMessage("These " . count($form_errors) . " form fields are empty.");
-    }
-    $formErrorHTML .= "<ul style='color: red;'>";
-    // loop through the error array and display all items
-    foreach ($form_errors as $error) {
-      $formErrorHTML .= "<li> {$error} </li>";
-    }
-    $formErrorHTML .= "</ul></p>";
-
+      $formErrorHTML = statusMessage("There is one error in the form.");
+    } else {    // ! count($form_errors == 1)
+      $formErrorHTML = statusMessage("There were " . count($form_errors) . " errors in the form.");
+    } // end if (count($form_errors) == 1) {
   }
 
 }

@@ -49,13 +49,19 @@ if (isset($_POST['passwordResetBtn'])) {
 
           // SQL statement to update password
           $sqlUpdate = "UPDATE users SET password = :password WHERE email = :email";
-
           // use PDO 'prepare' to sanitize the data
           $sqlStatement = $db->prepare($sqlUpdate);
 
-        } // end if ($sqlStatement->rowCount() == 1) {
-      } catch ($exception) {
+          // execute the statement
+          $sqlStatement->execute(array(':password' => $hashed_password, ':email' => $email));
 
+          $formErrorHTML = "<p style='padding: 20px; border: 1px solid gray; color: green;'> Password Reset Successful. </p>";
+
+        } else { // ! $sqlStatement->rowCount() == 1
+          $formErrorHTML = "<p style='padding: 20px; border: 1px solid gray; color: red;'>The email address provided does not exist in our database, please try again.</p>";
+        } // end if ($sqlStatement->rowCount() == 1) {
+      } catch (PDOException $exception) {
+        $formErrorHTML = "<p style='padding: 20px; border: 1px solid gray; color: red;'>A database error ocurred: " . $exception->getMessage() . "</p>";
       } // try ... catch
     } // end if ($password1 != $password2) {
 

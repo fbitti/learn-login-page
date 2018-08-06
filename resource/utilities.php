@@ -87,11 +87,11 @@ function redirectTo($page) {
   header("location: {$page}.php");
 }
 
-function checkDuplicateUsername($value, $db) {
+function checkDuplicateEntries($db, $table, $column_name, $value) {
   try {
-    $sqlQuery = "SELECT username FROM users WHERE username = :username";
+    $sqlQuery = "SELECT * FROM " . $table . " WHERE " . $column_name . " = :value";
     $sqlStatement = $db->prepare($sqlQuery);
-    $sqlStatement->execute(array(':username' => $value));
+    $sqlStatement->execute(array(':value' => $value));
 
     if ($row = $sqlStatement->fetch()) {
       return true;

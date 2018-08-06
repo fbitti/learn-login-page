@@ -26,9 +26,13 @@ if (isset($_POST['signupBtn'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  if (checkDuplicateUsername($username, $db)) {
-    $formErrorHTML = statusMessage("The username is already taken.");
+  if (checkDuplicateEntries($db, "users", "username", $username)) {
+    $formErrorHTML = statusMessage("This username is already taken.");
   }
+  else if (checkDuplicateEntries($db, "users", "email", $email)) {
+    $formErrorHTML = statusMessage("This email address is already registered.");
+  }
+
   // only process the form data and insert a new record to the database
   // if the error array is empty
   else if (empty($form_errors)) {

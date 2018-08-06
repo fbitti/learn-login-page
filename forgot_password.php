@@ -64,7 +64,12 @@ if (isset($_POST['passwordResetBtn'])) {
         $formErrorHTML = statusMessage("A database error ocurred: " . $exception->getMessage());
       } // try ... catch
     } // end if ($password1 != $password2) {
-
+  } else {              // ! empty($form_errors)
+    if (count($form_errors) == 1) {
+      $formErrorHTML = statusMessage("There is one error in the form.");
+    } else {    // ! count($form_errors == 1)
+      $formErrorHTML = statusMessage("There were " . count($form_errors) . " errors in the form.");
+    } // end if (count($form_errors) == 1) {
   } // end if (empty($form_errors)) {
 
 } // end if (isset($_POST['passwordResetBtn'])) {

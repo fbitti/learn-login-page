@@ -31,14 +31,14 @@ if ( isset($_POST["loginBtn"]) ) {
         $_SESSION['username'] = $username;
         header("location: index.php");
       } else {   // !password_verify($password, $hashed_password)
-        $formErrorHTML = flashMessage("Invalid username or password.");
+        $formErrorHTML = statusMessage("Invalid username or password.");
       } // end if (password_verify($password, $hashed_password))
     } // end while ($row = $sqlStatement->fetch())
   } else {    // ! empty($form_errors)
     if (count($form_errors) == 1) {
-      $formErrorHTML = flashMessage("There is one error in the form.");
+      $formErrorHTML = statusMessage("There is one error in the form.");
     } else {    // ! count($form_errors == 1)
-      $formErrorHTML = flashMessage("There were " . count($form_errors) . " errors in the form.");
+      $formErrorHTML = statusMessage("There were " . count($form_errors) . " errors in the form.");
     } // end if (count($form_errors) == 1) {
   } // end else if (empty($form_errors)) {
 } // end if ( isset($_POST["loginBtn"]) ) {

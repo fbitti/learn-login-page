@@ -30,7 +30,7 @@ if (isset($_POST['passwordResetBtn'])) {
 
     // check if the passwords are not the same
     if ($password1 != $password2) {
-      $formErrorHTML = "<p style='padding: 20px; border: 1px solid gray; color: red;'> New password and confirm password do not match. </p>";
+      $sqlResult = "<p style='padding: 20px; border: 1px solid gray; color: red;'> New password and confirm password do not match. </p>";
     } else { // ! $password1 != $password2
       try {
         // create SQL select statement to verify if the email address exists in our database
@@ -55,13 +55,13 @@ if (isset($_POST['passwordResetBtn'])) {
           // execute the statement
           $sqlStatement->execute(array(':password' => $hashed_password, ':email' => $email));
 
-          $formErrorHTML = "<p style='padding: 20px; border: 1px solid gray; color: green;'> Password Reset Successful. </p>";
+          $sqlResult = "<p style='padding: 20px; border: 1px solid gray; color: green;'> Password Reset Successful. </p>";
 
         } else { // ! $sqlStatement->rowCount() == 1
-          $formErrorHTML = "<p style='padding: 20px; border: 1px solid gray; color: red;'>The email address provided does not exist in our database, please try again.</p>";
+          $sqlResult = "<p style='padding: 20px; border: 1px solid gray; color: red;'>The email address provided does not exist in our database, please try again.</p>";
         } // end if ($sqlStatement->rowCount() == 1) {
       } catch (PDOException $exception) {
-        $formErrorHTML = "<p style='padding: 20px; border: 1px solid gray; color: red;'>A database error ocurred: " . $exception->getMessage() . "</p>";
+        $sqlResult = "<p style='padding: 20px; border: 1px solid gray; color: red;'>A database error ocurred: " . $exception->getMessage() . "</p>";
       } // try ... catch
     } // end if ($password1 != $password2) {
 

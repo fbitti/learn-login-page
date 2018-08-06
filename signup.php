@@ -91,7 +91,7 @@ if (isset($_POST['signupBtn'])) {
       <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
       <tr><td></td> <td><input style="float:right;" type="submit" value="Sign Up" name="signupBtn"></td></tr>
   </table>
-
+</form>
 <p> <a href="index.php">Back</a> </p>
 
 </body>

@@ -64,7 +64,7 @@ if ( isset($_POST["loginBtn"]) ) {
   <table>
       <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
       <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
-      <tr><td></td> <td><input style="float:right;" type="submit" value="Signin" name="loginBtn"></td></tr>
+      <tr><td><a href="forgot_password.php">Forgot Password?</a></td> <td><input style="float:right;" type="submit" value="Signin" name="loginBtn"></td></tr>
   </table>
 
 <p> <a href="index.php">Back</a> </p>

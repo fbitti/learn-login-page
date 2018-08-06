@@ -94,8 +94,10 @@ function checkDuplicateEntries($db, $table, $column_name, $value) {
     $sqlStatement->execute(array(':value' => $value));
 
     if ($row = $sqlStatement->fetch()) {
+      var_dump($row);
       return true;
     }
+    var_dump($row);
     return false;
 
   } catch (PDOException $exception) {

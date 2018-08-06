@@ -3,7 +3,7 @@ include_once "resource/session.php";
 include_once "resource/Database.php";
 include_once "resource/utilities.php";
 
-if (isset($_POST["loginBtn"])) {
+if ( isset($_POST["loginBtn"]) ) {
   // array to store the errors
   $form_errors = array();
 
@@ -32,18 +32,16 @@ if (isset($_POST["loginBtn"])) {
         header("location: index.php");
       } else {   // !password_verify($password, $hashed_password)
         $formErrorHTML = "<p style='padding:20px; color:red; border: 1px solid grey;'> Invalid username or password. </p>";
-      }
-    }
-
-
+      } // end if (password_verify($password, $hashed_password))
+    } // end while ($row = $sqlStatement->fetch())
   } else {    // ! empty($form_errors)
     if (count($form_errors) == 1) {
       $formErrorHTML = "<p style='color: red;'>There is one error in the form.</p>";
     } else {    // ! count($form_errors == 1)
       $formErrorHTML = "<p style='color: red;'>There were " . count($form_errors) . " errors in the form.</p>";
-    }
-  }
-}
+    } // end if (count($form_errors) == 1) {
+  } // end else if (empty($form_errors)) {
+} // end if ( isset($_POST["loginBtn"]) ) {
 
 
  ?>

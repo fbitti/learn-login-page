@@ -29,10 +29,9 @@ if (isset($_POST['signupBtn'])) {
   if (checkDuplicateUsername($username, $db)) {
     $formErrorHTML = statusMessage("The username is already taken.");
   }
-
   // only process the form data and insert a new record to the database
   // if the error array is empty
-  if (empty($form_errors)) {
+  else if (empty($form_errors)) {
 
     // store a hash of the password, not the password itself
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);

@@ -41,10 +41,10 @@ if (isset($_POST['signupBtn'])) {
       $sqlStatement->execute(array(':username' => $username, ':email' => $email, ':password' => $hashed_password));
 
       if ($sqlStatement->rowCount() == 1) {
-        $sqlResult = statusMessage("Registration Successful", false);
+        $formErrorHTML = statusMessage("Registration Successful", false);
       }
     } catch (PDOException $exception) {
-        $sqlResult = statusMessage("An error ocurred: " . $exception->getMessage());
+        $formErrorHTML = statusMessage("An error ocurred: " . $exception->getMessage());
     }
   } else {              // ! empty($form_errors)
     if (count($form_errors) == 1) {
@@ -81,7 +81,7 @@ if (isset($_POST['signupBtn'])) {
 <h3> Registration Form </h3>
 
 
-<?php if(isset($sqlResult)) echo $sqlResult; ?>
+<?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
 <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 
 <form method="post" action="">

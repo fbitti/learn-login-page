@@ -41,18 +41,18 @@ if (isset($_POST['signupBtn'])) {
       $sqlStatement->execute(array(':username' => $username, ':email' => $email, ':password' => $hashed_password));
 
       if ($sqlStatement->rowCount() == 1) {
-        $sqlResult = "<p style='padding:20px; border:1px solid gray; color:green;'>Registration Successful</p>";
+        $sqlResult = statusMessage("Registration Successful", false);
       }
     } catch (PDOException $exception) {
-        $sqlResult = "<p style='padding:20px; border:1px solid gray; color:red;'>Registration Failed: " . $exception->getMessage() . "</p>";
+        $sqlResult = statusMessage("An error ocurred: " . $exception->getMessage());
     }
   } else {              // ! empty($form_errors)
     if (count($form_errors) == 1) {
       // create an error message in the singular
-      $formErrorHTML = "<p style='color:red;'> This form field is empty:<br>";
+      $formErrorHTML = statusMessage("This form field is empty:");
     } else {            // ! (count($form_errors) == 1)
       // create an error message in the plural
-      $formErrorHTML = "<p style='color:red;'> These " . count($form_errors) . " form fields are empty.<br>";
+      $formErrorHTML = statusMessage("These " . count($form_errors) . " form fields are empty.");
     }
     $formErrorHTML .= "<ul style='color: red;'>";
     // loop through the error array and display all items

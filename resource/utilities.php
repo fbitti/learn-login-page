@@ -73,4 +73,14 @@ function show_errors($form_errors_array) {
   return $errors;
 }
 
+function statusMessage($message, $fail = true) {
+  if (!$fail) {
+    $msg = "<p style='padding:20px; border:1px solid gray; color:green;'>{$message}</p>";
+  } else { // $fail
+    $msg = "<p style='padding:20px; border:1px solid gray; color:red;'>{$message}</p>";
+  } // end if ($fail)
+
+  return $msg;
+}
+
  ?>

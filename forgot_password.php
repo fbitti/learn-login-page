@@ -3,6 +3,9 @@ include_once 'resource/Database.php';
 include_once 'resource/utilities.php';
 
 if (isset($_POST['passwordResetBtn'])) {
+  // debug 
+  var_dump($_POST);
+
   // initialize an array to store any error message from the form
   $form_errors = array();
 

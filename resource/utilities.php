@@ -87,4 +87,20 @@ function redirectTo($page) {
   header("location: {$page}.php");
 }
 
+function checkDuplicateUsername($value, $db) {
+  try {
+    $sqlQuery = "SELECT username FROM users WHERE username = :username";
+    $sqlStatement = $db->prepare($sqlQuery);
+    $sqlStatement->execute(array(':username' => $value));
+
+    if ($row = $sqlStatement->fetch()) {
+      return true;
+    }
+    return false;
+
+  } catch (PDOException $exception) {
+    // handle exception
+  }
+}
+
  ?>

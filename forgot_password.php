@@ -3,9 +3,6 @@ include_once 'resource/Database.php';
 include_once 'resource/utilities.php';
 
 if (isset($_POST['passwordResetBtn'])) {
-  // debug 
-  var_dump($_POST);
-
   // initialize an array to store any error message from the form
   $form_errors = array();
 
@@ -22,7 +19,7 @@ if (isset($_POST['passwordResetBtn'])) {
   $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
 
   // email validation / merge the returned errors into the form errors array
-  $form_errors = array_merge($form_errors. check_email($_POST));
+  $form_errors = array_merge($form_errors, check_email($_POST));
 
   // check whether the errors array is empty, if so process the form data and insert the record into the database
   if (empty($form_errors)) {

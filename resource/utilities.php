@@ -83,4 +83,8 @@ function statusMessage($message, $fail = true) {
   return $msg;
 }
 
+function redirectTo($page) {
+  header("location: {$page}.php");
+}
+
  ?>

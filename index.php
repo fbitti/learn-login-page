@@ -26,7 +26,7 @@ include_once "resource/session.php";
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -53,6 +53,7 @@ include_once "resource/session.php";
   <main role="main" class="container">
 
     <div class="starter-template">
+      <h1><br><br></h1>
       <h1>Bootstrap starter template</h1>
       <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
     </div>

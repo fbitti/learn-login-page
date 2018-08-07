@@ -1,5 +1,1 @@
-<?php
-
-session_start();
-
- ?>
+<!DOCTY

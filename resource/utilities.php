@@ -103,4 +103,4 @@ function checkDuplicateEntries($db, $table, $column_name, $value) {
   }
 }
 
- ?>
+?>

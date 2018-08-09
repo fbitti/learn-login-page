@@ -5,7 +5,7 @@ include_once "partials/headers.php";
 
   <main role="main" class="container">
 
-    <div class="flag">
+    <div class="flag text-center">
       <h1>User Authentication System</h1>
       <p class="lead">Mussum Ipsum, cacilds vidis litro abertis. <br> Copo furadis é disculpa de bebadis, arcu quam euismod magna.</p>
 

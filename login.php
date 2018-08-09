@@ -53,7 +53,7 @@ if ( isset($_POST["loginBtn"]) ) {
   ?>
 
 <div class="container">
-  <section class="col col-lg-7">
+  <section class="col col-lg-7 flag">
     <h2>Login Form</h2>
     <hr>
 

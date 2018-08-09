@@ -58,8 +58,7 @@ include_once "resource/session.php";
     </div>
 
     <?php if( !isset($_SESSION['username']) ): ?>
-    <p class="lead">You are currently not signed in. <a href="login.php">Login</a></p>
-    <p class="lead"> Not yet a member? <a href="signup.php">Signup</a> </p>
+    <p class="lead">You are currently not signed in. <a href="login.php">Login</a><br>Not yet a member? <a href="signup.php">Signup</a> </p>
     <?php else: ?>
     <p class="lead">You are logged in as <?php if(isset($_SESSION)) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a> </p>
     <?php endif ?>

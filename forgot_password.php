@@ -106,7 +106,7 @@ include_once "partials/headers.php";
       </div>
       <div class="form-group">
         <label for="newPasswordField">New Password: </label>
-        <input type="password" class="form-control" id="newPasswordField" placeholder="Choose a new password" name="username">
+        <input type="password" class="form-control" id="newPasswordField" placeholder="Choose a new password" name="new_password">
       </div>
       <div class="form-group">
         <label for="confirmPasswordField">Confirm Password: </label>

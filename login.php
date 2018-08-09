@@ -54,6 +54,12 @@ if ( isset($_POST["loginBtn"]) ) {
     <title>Login Page</title>
 </head>
 <body>
+
+  <?php
+  $page_title = "User Authentication - Login Form";
+  include_once "partials/headers.php";
+  ?>
+
 <h2>User Authentication System </h2><hr>
 
 <h3> Login Form </h3>
@@ -69,5 +75,6 @@ if ( isset($_POST["loginBtn"]) ) {
 
 <p> <a href="index.php">Back</a> </p>
 
-</body>
-</html>
+<?php
+include_once "partials/footers.php";
+?>

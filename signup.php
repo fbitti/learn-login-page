@@ -71,16 +71,6 @@ $page_title = "User Authentication - Registration Form";
 include_once "partials/headers.php";
 ?>
 
-<form method="post" action="">
-  <table>
-      <tr><td>Email:</td> <td><input type="text" value="" name="email"></td></tr>
-      <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
-      <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
-      <tr><td></td> <td><input style="float:right;" type="submit" value="Sign Up" name="signupBtn"></td></tr>
-  </table>
-</form>
-<p> <a href="index.php">Back</a> </p>
-
 <div class="container">
   <section class="col col-lg-7 flag">
     <h2>Registration Form</h2>
@@ -91,7 +81,7 @@ include_once "partials/headers.php";
 
     <form method="post" action="">
       <div class="form-group">
-        <label for="emailField">Username: </label>
+        <label for="emailField">Email: </label>
         <input type="text" class="form-control" id="emailField" aria-describedby="emailHelp" placeholder="Type your email" name="email">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>

@@ -55,14 +55,17 @@ include_once "resource/session.php";
     <div class="flag">
       <h1>User Authentication System</h1>
       <p class="lead">Mussum Ipsum, cacilds vidis litro abertis. <br> Copo furadis é disculpa de bebadis, arcu quam euismod magna.</p>
+
+      <?php if( !isset($_SESSION['username']) ): ?>
+      <p class="lead">You are currently not signed in. <a href="login.php">Login</a>
+        <br>
+        Not yet a member? <a href="signup.php">Signup</a>
+      </p>
+      <?php else: ?>
+      <p class="lead">You are logged in as <?php if(isset($_SESSION)) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a> </p>
+      <?php endif ?>
     </div>
-
-    <?php if( !isset($_SESSION['username']) ): ?>
-    <p class="lead">You are currently not signed in. <a href="login.php">Login</a><br>Not yet a member? <a href="signup.php">Signup</a> </p>
-    <?php else: ?>
-    <p class="lead">You are logged in as <?php if(isset($_SESSION)) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a> </p>
-    <?php endif ?>
-
+    
   </main><!-- /.container -->
 
   <!-- Optional JavaScript -->

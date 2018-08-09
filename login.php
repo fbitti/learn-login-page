@@ -65,8 +65,29 @@ if ( isset($_POST["loginBtn"]) ) {
           <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
           <tr><td><a href="forgot_password.php">Forgot Password?</a></td> <td><input style="float:right;" type="submit" value="Signin" name="loginBtn"></td></tr>
       </table>
+    </form>
 
     <p> <a href="index.php">Back</a> </p>
+
+    <form method="post" action="">
+      <div class="form-group">
+        <label for="usernameField">Username: </label>
+        <input type="text" class="form-control" id="usernameField" placeholder="Enter username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="passwordField">Password: </label>
+        <input type="password" class="form-control" id="passwordField" placeholder="Enter password" name="password">
+        <!-- aria-describedby="emailHelp"
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="remember"> Remember me
+        </label>
+      </div>
+      <a href="forgot_password.php">Forgot Password?</a>
+      <button type="submit" class="btn btn-primary pull-right" name="loginBtn">Sign In</button>
+    </form>
   </section>
 </div>
 

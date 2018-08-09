@@ -59,14 +59,6 @@ if ( isset($_POST["loginBtn"]) ) {
 
     <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
     <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-    <form method="post" action="">
-      <table>
-          <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
-          <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
-          <tr><td><a href="forgot_password.php">Forgot Password?</a></td> <td><input style="float:right;" type="submit" value="Signin" name="loginBtn"></td></tr>
-      </table>
-    </form>
-
     <p> <a href="index.php">Back</a> </p>
 
     <form method="post" action="">
@@ -86,7 +78,7 @@ if ( isset($_POST["loginBtn"]) ) {
         </label>
       </div>
       <a href="forgot_password.php">Forgot Password?</a>
-      <button type="submit" class="btn btn-primary pull-right" name="loginBtn">Sign In</button>
+      <button type="submit" class="btn btn-primary justify-content-end" name="loginBtn">Sign In</button>
     </form>
   </section>
 </div>

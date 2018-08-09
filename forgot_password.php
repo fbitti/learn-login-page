@@ -76,20 +76,10 @@ if (isset($_POST['passwordResetBtn'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Password Reset Form</title>
-</head>
-<body>
-<h2>User Authentication System </h2><hr>
-
-<h3> Password Reset Form </h3>
-
-
-<?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
-<?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+<?php
+$page_title = "User Authentication - Password Reset Form";
+include_once "partials/headers.php";
+?>
 
 <form method="post" action="">
   <table>
@@ -100,5 +90,37 @@ if (isset($_POST['passwordResetBtn'])) {
   </table>
 </form>
 <p> <a href="index.php">Back</a> </p>
-</body>
-</html>
+
+<div class="container">
+  <section class="col col-lg-7 flag">
+    <h2>Password Reset Form</h2>
+    <hr>
+
+    <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
+    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+
+    <form method="post" action="">
+      <div class="form-group">
+        <label for="emailField">Email: </label>
+        <input type="text" class="form-control" id="emailField" placeholder="Type your email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="newPasswordField">New Password: </label>
+        <input type="password" class="form-control" id="newPasswordField" placeholder="Choose a new password" name="username">
+      </div>
+      <div class="form-group">
+        <label for="confirmPasswordField">Confirm Password: </label>
+        <input type="password" class="form-control" id="confirmPasswordField" placeholder="Retype your new password" name="confirm_password">
+      </div>
+      <div class="d-flex">
+        <p> </p>
+        <button type="submit" class="btn btn-primary ml-auto" name="passwordResetBtn">Reset Password</button>
+      </div>
+    </form>
+  </section>
+  <p> <a href="index.php">Back</a> </p>
+</div>
+
+<?php
+include_once "partials/footers.php";
+?>

@@ -47,10 +47,10 @@ if ( isset($_POST["loginBtn"]) ) {
  ?>
 
 
-  <?php
-  $page_title = "User Authentication - Login Form";
-  include_once "partials/headers.php";
-  ?>
+<?php
+$page_title = "User Authentication - Login Form";
+include_once "partials/headers.php";
+?>
 
 <div class="container">
   <section class="col col-lg-7 flag">

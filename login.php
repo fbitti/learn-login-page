@@ -60,20 +60,24 @@ if ( isset($_POST["loginBtn"]) ) {
   include_once "partials/headers.php";
   ?>
 
-<h2>User Authentication System </h2><hr>
+<div class="container">
+  <section class="col col-lg-7">
+    <h2>User Authentication System </h2><hr>
 
-<h3> Login Form </h3>
+    <h3> Login Form </h3>
 
-<?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
-<?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-<form method="post" action="">
-  <table>
-      <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
-      <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
-      <tr><td><a href="forgot_password.php">Forgot Password?</a></td> <td><input style="float:right;" type="submit" value="Signin" name="loginBtn"></td></tr>
-  </table>
+    <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
+    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+    <form method="post" action="">
+      <table>
+          <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
+          <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
+          <tr><td><a href="forgot_password.php">Forgot Password?</a></td> <td><input style="float:right;" type="submit" value="Signin" name="loginBtn"></td></tr>
+      </table>
 
-<p> <a href="index.php">Back</a> </p>
+    <p> <a href="index.php">Back</a> </p>
+  </section>
+</div>
 
 <?php
 include_once "partials/footers.php";

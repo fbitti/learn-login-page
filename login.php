@@ -77,7 +77,7 @@ if ( isset($_POST["loginBtn"]) ) {
         </label>
       </div>
       <div class="d-flex">
-        <a href="forgot_password.php">Forgot Password?</a>
+        <a class="align-self-center" href="forgot_password.php">Forgot Password?</a>
         <button type="submit" class="btn btn-primary ml-auto" name="loginBtn">Sign In</button>
       </div>
     </form>

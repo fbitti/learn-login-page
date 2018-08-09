@@ -47,14 +47,6 @@ if ( isset($_POST["loginBtn"]) ) {
  ?>
 
 
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Login Page</title>
-</head>
-<body>
-
   <?php
   $page_title = "User Authentication - Login Form";
   include_once "partials/headers.php";
@@ -64,7 +56,7 @@ if ( isset($_POST["loginBtn"]) ) {
   <section class="col col-lg-7">
     <h2>Login Form</h2>
     <hr>
-    
+
     <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
     <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
     <form method="post" action="">

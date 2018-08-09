@@ -63,13 +63,11 @@ if ( isset($_POST["loginBtn"]) ) {
     <form method="post" action="">
       <div class="form-group">
         <label for="usernameField">Username: </label>
-        <input type="text" class="form-control" id="usernameField" placeholder="Enter username" name="username">
+        <input type="text" class="form-control" id="usernameField" placeholder="Enter your username" name="username">
       </div>
       <div class="form-group">
         <label for="passwordField">Password: </label>
-        <input type="password" class="form-control" id="passwordField" placeholder="Enter password" name="password">
-        <!-- aria-describedby="emailHelp"
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        <input type="password" class="form-control" id="passwordField" placeholder="Enter your password" name="password">
       </div>
       <div class="form-check">
         <label class="form-check-label">
@@ -81,8 +79,8 @@ if ( isset($_POST["loginBtn"]) ) {
         <button type="submit" class="btn btn-primary ml-auto" name="loginBtn">Sign In</button>
       </div>
     </form>
-    <p> <a href="index.php">Back</a> </p>
   </section>
+  <p> <a href="index.php">Back</a> </p>
 </div>
 
 

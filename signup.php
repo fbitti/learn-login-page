@@ -64,24 +64,12 @@ if (isset($_POST['signupBtn'])) {
 
 }
 
-
-
 ?>
 
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Register Page</title>
-</head>
-<body>
-<h2>User Authentication System </h2><hr>
-
-<h3> Registration Form </h3>
-
-
-<?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
-<?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+<?php
+$page_title = "User Authentication - Registration Form";
+include_once "partials/headers.php";
+?>
 
 <form method="post" action="">
   <table>
@@ -93,5 +81,37 @@ if (isset($_POST['signupBtn'])) {
 </form>
 <p> <a href="index.php">Back</a> </p>
 
-</body>
-</html>
+<div class="container">
+  <section class="col col-lg-7 flag">
+    <h2>Registration Form</h2>
+    <hr>
+
+    <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
+    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+
+    <form method="post" action="">
+      <div class="form-group">
+        <label for="emailField">Username: </label>
+        <input type="text" class="form-control" id="emailField" aria-describedby="emailHelp" placeholder="Type your email" name="email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="usernameField">Username: </label>
+        <input type="text" class="form-control" id="usernameField" placeholder="Choose a username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="passwordField">Password: </label>
+        <input type="password" class="form-control" id="passwordField" placeholder="Choose a password" name="password">
+      </div>
+      <div class="d-flex">
+        <p> </p>
+        <button type="submit" class="btn btn-primary ml-auto" name="signupBtn">Sign Up</button>
+      </div>
+    </form>
+  </section>
+  <p> <a href="index.php">Back</a> </p>
+</div>
+
+<?php
+include_once "partials/footers.php";
+?>

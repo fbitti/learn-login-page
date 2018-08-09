@@ -62,10 +62,9 @@ if ( isset($_POST["loginBtn"]) ) {
 
 <div class="container">
   <section class="col col-lg-7">
-    <h2>User Authentication System </h2><hr>
-
-    <h3> Login Form </h3>
-
+    <h2>Login Form</h2>
+    <hr>
+    
     <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
     <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
     <form method="post" action="">

@@ -59,7 +59,6 @@ if ( isset($_POST["loginBtn"]) ) {
 
     <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
     <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-    <p> <a href="index.php">Back</a> </p>
 
     <form method="post" action="">
       <div class="form-group">
@@ -78,10 +77,12 @@ if ( isset($_POST["loginBtn"]) ) {
         </label>
       </div>
       <a href="forgot_password.php">Forgot Password?</a>
-      <button type="submit" class="btn btn-primary justify-content-end" name="loginBtn">Sign In</button>
+      <button type="submit" class="btn btn-primary ml-auto" name="loginBtn">Sign In</button>
     </form>
+    <p> <a href="index.php">Back</a> </p>
   </section>
 </div>
+
 
 <?php
 include_once "partials/footers.php";

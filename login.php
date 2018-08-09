@@ -76,8 +76,10 @@ if ( isset($_POST["loginBtn"]) ) {
           <input type="checkbox" class="form-check-input" name="remember"> Remember me
         </label>
       </div>
-      <a href="forgot_password.php">Forgot Password?</a>
-      <button type="submit" class="btn btn-primary ml-auto" name="loginBtn">Sign In</button>
+      <div>
+        <a href="forgot_password.php">Forgot Password?</a>
+        <button type="submit" class="d-flex btn btn-primary align-items-end" name="loginBtn">Sign In</button>
+      </div>
     </form>
     <p> <a href="index.php">Back</a> </p>
   </section>

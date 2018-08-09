@@ -81,16 +81,6 @@ $page_title = "User Authentication - Password Reset Form";
 include_once "partials/headers.php";
 ?>
 
-<form method="post" action="">
-  <table>
-      <tr><td>Email:</td> <td><input type="text" value="" name="email"></td></tr>
-      <tr><td>New Password:</td> <td><input type="password" value="" name="new_password"></td></tr>
-      <tr><td>Confirm Password:</td> <td><input type="password" value="" name="confirm_password"></td></tr>
-      <tr><td></td> <td><input style="float:right;" type="submit" value="Reset Password" name="passwordResetBtn"></td></tr>
-  </table>
-</form>
-<p> <a href="index.php">Back</a> </p>
-
 <div class="container">
   <section class="col col-lg-7 flag">
     <h2>Password Reset Form</h2>

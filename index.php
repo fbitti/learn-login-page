@@ -53,13 +53,11 @@ include_once "resource/session.php";
   <main role="main" class="container">
 
     <div class="flag">
-      <h1>Bootstrap starter template</h1>
-      <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      <h1>User Authentication System</h1>
+      <p class="lead">Mussum Ipsum, cacilds vidis litro abertis. <br> Copo furadis é disculpa de bebadis, arcu quam euismod magna.</p>
     </div>
 
   </main><!-- /.container -->
-
-  <h2>User Authentication System </h2><hr>
 
   <?php if( !isset($_SESSION['username']) ): ?>
   <p>You are currently not signed in. <a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a> </p>

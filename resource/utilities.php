@@ -75,9 +75,9 @@ function show_errors($form_errors_array) {
 
 function statusMessage($message, $fail = true) {
   if (!$fail) {
-    $msg = "<div class='alert alert-success'>{$message}</div>";
+    $msg = "<div class='alert alert-success'>{$message}";
   } else { // $fail
-    $msg = "<div class='alert alert-danger'>{$message}</div>";
+    $msg = "<div class='alert alert-danger'>{$message}";
   } // end if ($fail)
 
   return $msg;

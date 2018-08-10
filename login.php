@@ -44,7 +44,7 @@ if ( isset($_POST["loginBtn"]) ) {
 } // end if ( isset($_POST["loginBtn"]) ) {
 
 
- ?>
+?>
 
 
 <?php
@@ -57,8 +57,11 @@ include_once "partials/headers.php";
     <h2>Login Form</h2>
     <hr>
 
-    <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
-    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+    <div>
+      <?php if(isset($formErrorHTML)) echo $formErrorHTML; ?>
+      <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+    </div>
+    <div class="clearfix"></div>
 
     <form method="post" action="">
       <div class="form-group">

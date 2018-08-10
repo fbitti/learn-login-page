@@ -1,4 +1,4 @@
-var pageUrl = window.location.href;
+var pageUrl = window.location;
 
 $('ul.nav-item a').filter(function() {
   return this.href == pageUrl;

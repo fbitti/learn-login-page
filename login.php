@@ -83,7 +83,7 @@ include_once "partials/headers.php";
       </div>
       <div class="d-flex">
         <a class="align-self-center" href="forgot_password.php">Forgot Password?</a>
-        <button type="submit" class="btn btn-primary ml-auto" name="loginBtn">Sign In</button>
+        <button type="submit" class="btn btn-primary ml-auto" name="loginBtn" value="loginBtn">Sign In</button>
       </div>
     </form>
   </section>

@@ -61,8 +61,8 @@ include_once "partials/headers.php";
       <?php if(isset($formErrorHTML)) {
               echo $formErrorHTML;
               if(!empty($form_errors)) echo show_errors($form_errors);
-              echo "</div>";
             }
+            echo "</div>";
       ?>
     </div>
     <div class="clearfix"></div>

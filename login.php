@@ -3,6 +3,8 @@ include_once "resource/session.php";
 include_once "resource/Database.php";
 include_once "resource/utilities.php";
 
+var_dump($_POST);
+
 if ( isset($_POST["loginBtn"]) ) {
   // array to store the errors
   $form_errors = array();
@@ -43,6 +45,7 @@ if ( isset($_POST["loginBtn"]) ) {
   } // end else if (empty($form_errors)) {
 } // end if ( isset($_POST["loginBtn"]) ) {
 
+var_dump($formErrorHTML);
 
 ?>
 

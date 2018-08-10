@@ -63,7 +63,7 @@ function check_email($data) {
  * @return string, list containing all error messages
  */
 function show_errors($form_errors_array) {
-  $errors = "<p><ul>";
+  $errors = "<p><ul style='color: red;'>";
 
   // loop through error array and display all items in a list
   foreach($form_errors_array as $the_error) {

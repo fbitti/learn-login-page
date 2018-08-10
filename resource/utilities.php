@@ -75,9 +75,10 @@ function show_errors($form_errors_array) {
 
 function statusMessage($message, $fail = true) {
   if (!$fail) {
-    $msg = "<p style='padding:20px; border:1px solid gray; color:green;'>{$message}</p>";
+    $msg = "<div class='alert alert-success'>{$message}</div>";
   } else { // $fail
-    $msg = "<p style='padding:20px; border:1px solid gray; color:red;'>{$message}</p>";
+    $msg = "<div class='alert alert-danger'>{$message}";
+    // the </div> will only be closed after all the errors are listed 
   } // end if ($fail)
 
   return $msg;
@@ -103,4 +104,4 @@ function checkDuplicateEntries($db, $table, $column_name, $value) {
   }
 }
 
- ?>
+?>

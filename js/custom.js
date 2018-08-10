@@ -1,1 +1,5 @@
-alert("js works!");
+var pageUrl = window.location;
+
+$('ul.nav a').filter(function() {
+  return this.href = url;
+}).parent().addClass('active');

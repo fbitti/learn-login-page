@@ -1,6 +1,6 @@
 var pageUrl = window.location.href;
 
-$('ul.nav a').filter(function() {
+$('ul.nav-item a').filter(function() {
   return this.href == pageUrl;
 }).parent().addClass('active');
 

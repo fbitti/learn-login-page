@@ -29,14 +29,7 @@ include_once "resource/session.php";
           <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
 
-        <?php if( !isset($_SESSION['username']) ): ?>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
-          </li>
-        <?php else: ?>
+        <?php if(!isset($_SESSION['username']) ): ?>
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
           </li>
@@ -49,6 +42,16 @@ include_once "resource/session.php";
           <li class="nav-item">
             <a class="nav-link" href="#">Contact Us</a>
           </li>
+
+        <?php else: ?>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+
         <?php endif ?>
 
       </ul>

@@ -3,8 +3,6 @@ include_once "resource/session.php";
 include_once "resource/Database.php";
 include_once "resource/utilities.php";
 
-var_dump($_POST);
-
 if ( isset($_POST["loginBtn"]) ) {
   // array to store the errors
   $form_errors = array();
@@ -23,7 +21,7 @@ if ( isset($_POST["loginBtn"]) ) {
     $sqlStatement = $db->prepare($sqlQuery);
     $sqlStatement->execute(array(':username' => $username));
 
-    while ($row = $sqlStatement->fetch()) {
+    if ($row = $sqlStatement->fetch()) {
       $id = $row['id'];
       $hashed_password = $row['password'];
       $username = $row['username'];
@@ -35,7 +33,10 @@ if ( isset($_POST["loginBtn"]) ) {
       } else {   // !password_verify($password, $hashed_password)
         $formErrorHTML = statusMessage("Invalid username or password.");
       } // end if (password_verify($password, $hashed_password))
-    } // end while ($row = $sqlStatement->fetch())
+
+    } else { // ! $row = $sqlStatement->fetch()
+      $formErrorHTML = statusMessage("Invalid username or password.");
+    } // end if ($row = $sqlStatement->fetch())
   } else {    // ! empty($form_errors)
     if (count($form_errors) == 1) {
       $formErrorHTML = statusMessage("There is one error in the form.");
@@ -45,7 +46,6 @@ if ( isset($_POST["loginBtn"]) ) {
   } // end else if (empty($form_errors)) {
 } // end if ( isset($_POST["loginBtn"]) ) {
 
-var_dump($formErrorHTML);
 
 ?>
 

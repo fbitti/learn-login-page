@@ -78,7 +78,7 @@ function statusMessage($message, $fail = true) {
     $msg = "<div class='alert alert-success'>{$message}</div>";
   } else { // $fail
     $msg = "<div class='alert alert-danger'>{$message}";
-    // the </div> will only be closed after all the errors are listed 
+    // the </div> will only be closed after all the errors are listed
   } // end if ($fail)
 
   return $msg;
@@ -102,6 +102,77 @@ function checkDuplicateEntries($db, $table, $column_name, $value) {
   } catch (PDOException $exception) {
     // handle exception
   }
+}
+
+/**
+ * @param $user_id
+ */
+function rememberMe($user_id) {
+  if (isset($_SERVER['COOKIE_SECRET_KEY'])) {
+      $cookieSecretKey = $_SERVER['COOKIE_SECRET_KEY'];
+  } else {
+      $cookieSecretKey = "change me";
+  }
+  var_dump($cookieSecretKey); //debug
+  $encryptedCookieData = base64_encode($cookieSecretKey . $user_id);
+  // Set Cookie to expire in approximately 30 days
+  setcookie("rememberMeCookie", $encryptedCookieData, time() + 3600*24*30, "/");
+}
+
+
+/**
+ * check if the cookie used is valid
+ * @param $db, database connection link
+ * @return bool, true if the user's cookie is valid
+ */
+function isCookieValid($db) {
+  $isValid = false;
+
+  if (isset($_COOKIE['rememberMeCookie'])) {
+    // Decode the cookies and extract the user ID
+    $decryptedCookieData = base64_decode($_COOKIE['rememberMeCookie']);
+    if (isset($_SERVER['COOKIE_SECRET_KEY'])) {
+        $cookieSecretKey = $_SERVER['COOKIE_SECRET_KEY'];
+    } else {
+        $cookieSecretKey = "change me";
+    }
+    $user_id = explode($cookieSecretKey, $decryptedCookieData);
+    $user_id = $user_id[1];
+  }
+
+  // check whether the retrieved user's id exists in the database
+  $sqlQuery = "SELECT * FROM users WHERE id = :id";
+  $sqlStatement = $db->prepare($sqlQuery);
+  $sqlStatement->execute(array(':id' => $user_id));
+
+  $row = $sqlStatement->fetch();
+  if ($row) {
+    $id = $row['id'];
+    $username = $row['username'];
+
+    // create the user session variable
+    $_SESSION['id'] = $id;
+    $_SESSION['username'] = $username;
+    $isValid = true;
+  } else { // ! $row
+    // cookie ID is invalid, destroy the session and log the user out
+    $isValid = false;
+    $this->signout();
+  }
+  return $isValid;
+}
+
+function signout() {
+  unset($_SESSION['username']);
+  unset($_SESSION['id']);
+
+  if (isset($_COOKIE['rememberMeCookie'])) {
+    unset($_COOKIE['rememberMeCookie']);
+    setcookie('rememberMeCookie', null, -1, '/');
+  }
+  session_destroy();
+  session_regenerate_id(true); // prevent session cookie hijacking
+  redirectTo('index');
 }
 
 ?>

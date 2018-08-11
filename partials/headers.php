@@ -1,5 +1,7 @@
 <?php
+include_once "resource/Database.php";
 include_once "resource/session.php";
+include_once "resource/utilities.php";
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +31,15 @@ include_once "resource/session.php";
           <a class="nav-link" href="index.php">Home</a>
         </li>
 
-        <?php if(!isset($_SESSION['username']) ): ?>
+        <?php if(isset($_SESSION['username']) || isCookieValid($db)): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+
+        <?php else: ?>
           <li class="nav-item">
             <a class="nav-link" href="login.php">Login</a>
           </li>
@@ -41,15 +51,6 @@ include_once "resource/session.php";
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
-          </li>
-
-        <?php else: ?>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
           </li>
 
         <?php endif ?>

@@ -15,6 +15,7 @@ if ( isset($_POST["loginBtn"]) ) {
     // store the form data in variables
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $remember = isset($_POST['remember']) ? $_POST['remember'] : "";
 
     // check if the user exists in the Database
     $sqlQuery = "SELECT * FROM users WHERE username = :username";
@@ -80,12 +81,12 @@ include_once "partials/headers.php";
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" name="remember"> Remember me
+          <input type="checkbox" class="form-check-input" value="yes" name="remember"> Remember me
         </label>
       </div>
       <div class="d-flex">
         <a class="align-self-center" href="forgot_password.php">Forgot Password?</a>
-        <button type="submit" class="btn btn-primary ml-auto" name="loginBtn" value="loginBtn">Sign In</button>
+        <button type="submit" class="btn btn-primary ml-auto" value="loginBtn" name="loginBtn">Sign In</button>
       </div>
     </form>
   </section>

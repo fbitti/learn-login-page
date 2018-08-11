@@ -138,27 +138,27 @@ function isCookieValid($db) {
     }
     $user_id = explode($cookieSecretKey, $decryptedCookieData);
     $user_id = $user_id[1];
-  }
 
-  // check whether the retrieved user's id exists in the database
-  $sqlQuery = "SELECT * FROM users WHERE id = :id";
-  $sqlStatement = $db->prepare($sqlQuery);
-  $sqlStatement->execute(array(':id' => $user_id));
+    // check whether the retrieved user's id exists in the database
+    $sqlQuery = "SELECT * FROM users WHERE id = :id";
+    $sqlStatement = $db->prepare($sqlQuery);
+    $sqlStatement->execute(array(':id' => $user_id));
 
-  $row = $sqlStatement->fetch();
-  if ($row) {
-    $id = $row['id'];
-    $username = $row['username'];
+    $row = $sqlStatement->fetch();
+    if ($row) {
+      $id = $row['id'];
+      $username = $row['username'];
 
-    // create the user session variable
-    $_SESSION['id'] = $id;
-    $_SESSION['username'] = $username;
-    $isValid = true;
-  } else { // ! $row
-    // cookie ID is invalid, destroy the session and log the user out
-    $isValid = false;
-    $this->signout();
-  }
+      // create the user session variable
+      $_SESSION['id'] = $id;
+      $_SESSION['username'] = $username;
+      $isValid = true;
+    } else { // ! $row
+      // cookie ID is invalid, destroy the session and log the user out
+      $isValid = false;
+      $this->signout();
+    } // end if ($row)
+  } // end if isset($_COOKIE['rememberMeCookie'])
   return $isValid;
 }
 

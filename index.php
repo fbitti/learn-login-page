@@ -21,7 +21,7 @@ include_once "partials/headers.php";
     <?php echo $_SERVER['REMOTE_ADDR'] . "<br>" .  $_SERVER['HTTP_USER_AGENT'];
         echo "<br>" . time();
         if (isset($_SESSION['last_active'])) {
-          "<br>" . echo $_SESSION['last_active'];
+          echo "<br>" . $_SESSION['last_active'];
         }
     ?>
   </div>

@@ -30,6 +30,11 @@ if ( isset($_POST["loginBtn"]) ) {
       if (password_verify($password, $hashed_password)) {
         $_SESSION['id'] = $id;
         $_SESSION['username'] = $username;
+
+        $user_fingerprint = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+        $_SESSION['last_active'] = time();
+        $_SESSION['fingerprint'] = $user_fingerprint;
+
         if($remember === "yes") {
           rememberMe($id);
         }

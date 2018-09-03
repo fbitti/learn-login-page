@@ -27,6 +27,7 @@ include_once "resource/utilities.php";
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
+        <i class="hide"><?php echo guard(); ?></i>
         <li class="nav-item">
           <a class="nav-link" href="index.php">Home</a>
         </li>

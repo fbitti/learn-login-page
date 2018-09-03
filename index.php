@@ -22,6 +22,7 @@ include_once "partials/headers.php";
 
 </main><!-- /.container -->
 
+
 <?php
 include_once "partials/footers.php";
 ?>

@@ -32,10 +32,8 @@ if ( isset($_POST["loginBtn"]) ) {
         $_SESSION['username'] = $username;
         if($remember === "yes") {
           rememberMe($id);
-          redirectTo("rememberMe");
-        } else {
-          redirectTo("index");
         }
+        redirectTo("index");
       } else {   // !password_verify($password, $hashed_password)
         $formErrorHTML = statusMessage("Invalid username or password.");
       } // end if (password_verify($password, $hashed_password))

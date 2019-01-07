@@ -16,6 +16,6 @@ if (isset($_SESSION['id'])) {
     // %b = abbreviated month, %d = 2 digits of the day, %Y = 4 digits of the year
   }
 
-  $encode_id = based64_encode("encodeuserid{$id}");
+  $encode_id = base64_encode("encodeuserid{$id}");
 }
 ?>

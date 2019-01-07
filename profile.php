@@ -24,6 +24,6 @@ include_once 'partials/parseProfile.php';
   </div>
 </div>
 
-<?php 
+<?php
 include_once 'partials/footers.php';
 ?>

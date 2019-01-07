@@ -9,7 +9,8 @@ include_once 'partials/parseProfile.php';
     <h1>Profile</h1>
     <?php if (!isset($_SESSION['username'])): ?>
       <p class="lead">You are not authorized to view this page <a href="login.php">Login</a>
-        Not yet a member?<a href="signup.php">Sign up</a></p>
+        <br>
+        Not yet a member?<a href="signup.php">Signup</a></p>
     <?php else: ?>
       <section class="col col-lg-7">
         <table class="table table-bordered table-condensed">

@@ -34,7 +34,7 @@ include_once "resource/utilities.php";
 
         <?php if(isset($_SESSION['username']) || isCookieValid($db)): ?>
           <li class="nav-item">
-            <a class="nav-link" href="#">My Profile</a>
+            <a class="nav-link" href="profile.php">My Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>

@@ -14,8 +14,7 @@ include_once 'partials/parseProfile.php';
     </div>
     <div class="clearfix"></div>
 
-    <?php if (!isset($_SESSION['username'])) var_dump($_SESSION); ?> // temp for troubleshooting
-    <?php if (isset($_SESSION['username'])): ?>
+    <?php if (!isset($_SESSION['username'])): ?>
       <p class="lead">You are not authorized to view this page <a href="login.php">Login</a>
         <br>
         Not yet a member? <a href="signup.php">Signup</a>

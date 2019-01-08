@@ -5,7 +5,7 @@ include_once 'partials/parseProfile.php';
 ?>
 
 <div class="container">
-  <div class="col col-lg-7 flag">
+  <section class="col col-lg-7 flag">
     <h1>Profile</h1>
 
     <?php if (!isset($_SESSION['username'])): ?>
@@ -23,7 +23,7 @@ include_once 'partials/parseProfile.php';
         </table>
       </section>
     <?php endif ?>
-  </div>
+  </section>
 </div>
 
 <?php

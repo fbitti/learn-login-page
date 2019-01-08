@@ -64,10 +64,12 @@ if ((isset($_SESSION['id']) || isset($_GET['user_identity'])) && !isset($_POST['
       // check if one new row was created
       if ($statement->rowCount() == 1) {
         $result = "<script type=\"text/javascript\">
-        swal(\"Updated!\", \"Profile Updated Successfully.\", \"success\");</script>";
+        alert(\"Profile Updated Successfully.\"); </script>";
       } else {
-        // code...
+        $result = "<script type=\"text/javascript\">
+        alert(\"You have not made any changes.\"); </script>";
       }
+      // Note: change to swal in the future. See lesson 6-22
 
     } catch (PDOException $ex) {
       $result = flashMessage("An error ocurred in: " . $ex->getMessage());

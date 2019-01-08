@@ -5,15 +5,15 @@ include_once 'partials/parseProfile.php';
 ?>
 
 <div class="container">
-  <div>
+  <div class="col col-lg-7 flag">
     <h1>Profile</h1>
-    
+
     <?php if (!isset($_SESSION['username'])): ?>
       <p class="lead">You are not authorized to view this page <a href="login.php">Login</a>
         <br>
         Not yet a member?<a href="signup.php">Signup</a></p>
     <?php else: ?>
-      <section class="col col-lg-7">
+      <section>
         <table class="table table-bordered table-condensed">
           <tr><th style="width: 20%;">Username:</th><td><?php if (isset($username)) echo $username; ?></td></tr>
           <tr><th>Email:</th><td><?php if (isset($email)) echo $email; ?></td></tr>

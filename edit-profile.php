@@ -5,7 +5,7 @@ include_once 'partials/parseProfile.php';
 ?>
 
 <div class="container">
-  <section class="col col-lg-7">
+  <section class="col col-lg-7 flag">
     <h2>Edit Profile</h2>
     <hr>
     <div>
